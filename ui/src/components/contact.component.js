@@ -127,7 +127,7 @@ export default class Contact extends Component {
             </form>
 
             <button
-              className="badge badge-danger mr-2"
+              className="btn btn-outline-secondary"
               onClick={this.deleteContact}
             >
               Delete
@@ -135,7 +135,7 @@ export default class Contact extends Component {
 
             <button
               type="submit"
-              className="badge badge-success"
+              className="btn btn-outline-secondary"
               onClick={this.updateContact}
             >
               Update

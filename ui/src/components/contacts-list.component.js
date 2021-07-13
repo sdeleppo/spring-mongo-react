@@ -161,7 +161,11 @@ export default class ContactsList extends Component {
                 to={"/contacts/" + currentContact.id}
                 className="badge badge-warning"
               >
-                Edit
+                <button
+                className="btn btn-outline-secondary"
+                  >
+            Edit
+          </button>
               </Link>
             </div>
           ) : (
