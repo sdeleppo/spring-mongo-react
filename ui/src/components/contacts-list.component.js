@@ -99,7 +99,7 @@ export default class ContactsList extends Component {
             <input
               type="text"
               className="form-control"
-              placeholder="Search by name"
+              placeholder="Search by name (case sensitive)"
               value={searchName}
               onChange={this.onChangeSearchName}
             />
@@ -155,6 +155,12 @@ export default class ContactsList extends Component {
                   <strong>Phone:</strong>
                 </label>{" "}
                 {currentContact.phone}
+              </div>
+              <div>
+                <label>
+                  <strong>Address:</strong>
+                </label>{" "}
+                {currentContact.address}
               </div>
 
               <Link

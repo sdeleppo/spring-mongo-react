@@ -1,3 +1,7 @@
+.navbar-brand {
+  max-width: 750px;
+  margin-left: 10px;
+}
 .list {
   text-align: left;
   max-width: 750px;

@@ -6,6 +6,7 @@ export default class AddContact extends Component {
     super(props);
     this.onChangeName = this.onChangeName.bind(this);
     this.onChangePhone = this.onChangePhone.bind(this);
+    this.onChangeAddress = this.onChangeAddress.bind(this);
 
     this.saveContact = this.saveContact.bind(this);
     this.newContact = this.newContact.bind(this);
@@ -14,6 +15,7 @@ export default class AddContact extends Component {
       id: null,
       name: "",
       phone: "",
+      address: "",
 
       submitted: false
     };
@@ -31,10 +33,17 @@ export default class AddContact extends Component {
     });
   }
 
+  onChangeAddress(e) {
+    this.setState({
+      address: e.target.value
+    });
+  }
+
   saveContact() {
     var data = {
       name: this.state.name,
-      phone: this.state.phone
+      phone: this.state.phone,
+      address: this.state.address
     };
 
     ContactDataService.create(data)
@@ -42,7 +51,8 @@ export default class AddContact extends Component {
         this.setState({
           id: response.data.id,
           name: response.data.name,
-          phone: response.data.name,
+          phone: response.data.phone,
+          address: response.data.address,
 
           submitted: true
         });
@@ -58,6 +68,7 @@ export default class AddContact extends Component {
       id: null,
       name: "",
       phone: "",
+      address: "",
 
       submitted: false
     });
@@ -98,6 +109,19 @@ export default class AddContact extends Component {
                 value={this.state.phone}
                 onChange={this.onChangePhone}
                 name="phone"
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="address">Address</label>
+              <input
+                type="text"
+                className="form-control"
+                id="address"
+                required
+                value={this.state.address}
+                onChange={this.onChangeAddress}
+                address="address"
               />
             </div>
 

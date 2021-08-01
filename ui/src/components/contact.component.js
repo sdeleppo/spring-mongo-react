@@ -6,6 +6,7 @@ export default class Contact extends Component {
     super(props);
     this.onChangeName = this.onChangeName.bind(this);
     this.onChangePhone = this.onChangePhone.bind(this);
+    this.onChangeAddress = this.onChangeAddress.bind(this);
     this.getContact = this.getContact.bind(this);
     this.updateContact = this.updateContact.bind(this);
     this.deleteContact = this.deleteContact.bind(this);
@@ -15,6 +16,7 @@ export default class Contact extends Component {
         id: null,
         name: "",
         phone: "",
+        address: "",
       },
       message: ""
     };
@@ -44,6 +46,17 @@ export default class Contact extends Component {
       currentContact: {
         ...prevState.currentContact,
         phone: phone
+      }
+    }));
+  }
+
+  onChangeAddress(e) {
+    const address = e.target.value;
+    
+    this.setState(prevState => ({
+      currentContact: {
+        ...prevState.currentContact,
+        address: address
       }
     }));
   }
@@ -118,12 +131,17 @@ export default class Contact extends Component {
                   onChange={this.onChangePhone}
                 />
               </div>
-
               <div className="form-group">
-                <label>
-                  <strong>Status:</strong>
-                </label>
+                <label htmlFor="address">Address</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="address"
+                  value={currentContact.address}
+                  onChange={this.onChangeAddress}
+                />
               </div>
+
             </form>
 
             <button
